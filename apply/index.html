@@ -1,1 +1,1030 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Apply — PCHW Community Advisory Board | Around-Birth Collective</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Hanken+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy-deep:   #0a0e1a;
+    --navy-mid:    #16243f;
+    --navy-light:  #1a2a4a;
+    --navy-card:   #1e3058;
+    --white-soft:  #f5f6f8;
+    --periwinkle:  #7d9bd1;
+    --silver:      #9aa6bd;
+    --border:      rgba(125,155,209,0.18);
+    --serif:       'Newsreader', Georgia, serif;
+    --sans:        'Hanken Grotesk', system-ui, sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--navy-deep);
+    color: var(--silver);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── NAV ── */
+  nav {
+    background: var(--navy-deep);
+    border-bottom: 1px solid var(--border);
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .nav-logo {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: var(--white-soft);
+    text-decoration: none;
+    letter-spacing: 0.01em;
+  }
+
+  .nav-logo em {
+    font-style: italic;
+    color: var(--periwinkle);
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-family: var(--sans);
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--silver);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--white-soft); }
+
+  .nav-cta {
+    font-family: var(--sans);
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--periwinkle);
+    border: 1px solid var(--periwinkle);
+    padding: 0.45rem 1.1rem;
+    border-radius: 2px;
+    text-decoration: none;
+    transition: background 0.2s, color 0.2s;
+  }
+
+  .nav-cta:hover {
+    background: var(--periwinkle);
+    color: var(--navy-deep);
+  }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 4px;
+  }
+
+  .hamburger span {
+    display: block;
+    width: 22px;
+    height: 1.5px;
+    background: var(--white-soft);
+    transition: all 0.25s;
+  }
+
+  .mobile-menu {
+    display: none;
+    flex-direction: column;
+    background: var(--navy-deep);
+    border-top: 1px solid var(--border);
+    padding: 1.5rem 2rem;
+    gap: 1.2rem;
+  }
+
+  .mobile-menu.open { display: flex; }
+
+  .mobile-menu a {
+    font-family: var(--sans);
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--silver);
+    text-decoration: none;
+  }
+
+  /* ── EYEBROW ── */
+  .eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .eyebrow::before {
+    content: '';
+    display: block;
+    width: 2rem;
+    height: 1px;
+    background: var(--periwinkle);
+    flex-shrink: 0;
+  }
+
+  .eyebrow span {
+    font-family: var(--sans);
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--periwinkle);
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--navy-mid);
+    border-bottom: 1px solid var(--border);
+    padding: 6rem 2rem 5rem;
+    text-align: center;
+  }
+
+  .hero h1 {
+    font-family: var(--serif);
+    font-size: clamp(2.6rem, 6vw, 4.2rem);
+    font-weight: 300;
+    color: var(--white-soft);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    max-width: 720px;
+    margin: 0 auto 1.25rem;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--periwinkle);
+  }
+
+  .hero p {
+    font-size: 1.05rem;
+    color: var(--silver);
+    max-width: 580px;
+    margin: 0 auto 2.5rem;
+    line-height: 1.8;
+  }
+
+  .hero-meta {
+    display: inline-flex;
+    gap: 2rem;
+    padding: 1rem 2rem;
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    background: rgba(125,155,209,0.04);
+  }
+
+  .hero-meta-item {
+    text-align: center;
+  }
+
+  .hero-meta-item .value {
+    font-family: var(--serif);
+    font-size: 1.6rem;
+    font-weight: 300;
+    color: var(--white-soft);
+    display: block;
+    line-height: 1;
+    margin-bottom: 0.25rem;
+  }
+
+  .hero-meta-item .label {
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--periwinkle);
+  }
+
+  .hero-meta-divider {
+    width: 1px;
+    background: var(--border);
+    align-self: stretch;
+  }
+
+  /* ── ABOUT SECTION ── */
+  .about {
+    padding: 5rem 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .about h2 {
+    font-family: var(--serif);
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    font-weight: 300;
+    color: var(--white-soft);
+    line-height: 1.3;
+    margin-bottom: 1.25rem;
+  }
+
+  .about h2 em {
+    font-style: italic;
+    color: var(--periwinkle);
+  }
+
+  .about p { margin-bottom: 1rem; font-size: 0.95rem; }
+
+  .workstreams {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .workstream-card {
+    border: 1px solid var(--border);
+    border-left: 2px solid var(--periwinkle);
+    border-radius: 0 2px 2px 0;
+    padding: 1rem 1.25rem;
+    background: rgba(125,155,209,0.03);
+  }
+
+  .workstream-card .num {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 0.8rem;
+    color: var(--periwinkle);
+    display: block;
+    margin-bottom: 0.25rem;
+  }
+
+  .workstream-card .title {
+    font-family: var(--serif);
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--white-soft);
+    display: block;
+    margin-bottom: 0.2rem;
+  }
+
+  .workstream-card .desc {
+    font-size: 0.85rem;
+    color: var(--silver);
+    line-height: 1.6;
+  }
+
+  /* ── ELIGIBILITY STRIP ── */
+  .eligibility {
+    background: var(--navy-light);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 3.5rem 2rem;
+  }
+
+  .eligibility-inner {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .eligibility-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  .eligibility-item {
+    text-align: center;
+    padding: 1.5rem 1rem;
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    background: rgba(125,155,209,0.03);
+  }
+
+  .eligibility-item .icon {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 1.4rem;
+    color: var(--periwinkle);
+    display: block;
+    margin-bottom: 0.6rem;
+  }
+
+  .eligibility-item .title {
+    font-family: var(--serif);
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--white-soft);
+    display: block;
+    margin-bottom: 0.3rem;
+  }
+
+  .eligibility-item .sub {
+    font-size: 0.82rem;
+    color: var(--silver);
+  }
+
+  /* ── FORM SECTION ── */
+  .form-section {
+    padding: 5rem 2rem;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  .form-section h2 {
+    font-family: var(--serif);
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    font-weight: 300;
+    color: var(--white-soft);
+    line-height: 1.3;
+    margin-bottom: 0.75rem;
+  }
+
+  .form-section h2 em {
+    font-style: italic;
+    color: var(--periwinkle);
+  }
+
+  .form-section .form-intro {
+    font-size: 0.95rem;
+    margin-bottom: 3rem;
+    color: var(--silver);
+  }
+
+  .form-group {
+    margin-bottom: 2rem;
+  }
+
+  .form-group label {
+    display: block;
+    font-family: var(--sans);
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--periwinkle);
+    margin-bottom: 0.5rem;
+  }
+
+  .form-group .hint {
+    font-size: 0.82rem;
+    color: var(--silver);
+    margin-bottom: 0.6rem;
+    font-style: italic;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  select,
+  textarea {
+    width: 100%;
+    background: rgba(125,155,209,0.05);
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    color: var(--white-soft);
+    font-family: var(--sans);
+    font-size: 0.95rem;
+    padding: 0.75rem 1rem;
+    outline: none;
+    transition: border-color 0.2s;
+    appearance: none;
+  }
+
+  input:focus, select:focus, textarea:focus {
+    border-color: var(--periwinkle);
+  }
+
+  input::placeholder, textarea::placeholder {
+    color: rgba(154,166,189,0.5);
+  }
+
+  select option { background: var(--navy-mid); }
+
+  textarea { resize: vertical; min-height: 110px; }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .radio-group, .checkbox-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+  }
+
+  .radio-item, .checkbox-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    cursor: pointer;
+    padding: 0.65rem 1rem;
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    transition: border-color 0.2s, background 0.2s;
+  }
+
+  .radio-item:hover, .checkbox-item:hover {
+    border-color: rgba(125,155,209,0.4);
+    background: rgba(125,155,209,0.04);
+  }
+
+  .radio-item input, .checkbox-item input {
+    width: auto;
+    margin-top: 3px;
+    accent-color: var(--periwinkle);
+    flex-shrink: 0;
+  }
+
+  .radio-item .item-label, .checkbox-item .item-label {
+    font-size: 0.92rem;
+    color: var(--white-soft);
+    line-height: 1.4;
+  }
+
+  .radio-item .item-sub, .checkbox-item .item-sub {
+    font-size: 0.78rem;
+    color: var(--silver);
+    display: block;
+    margin-top: 0.1rem;
+  }
+
+  .form-divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 2.5rem 0;
+  }
+
+  .form-section-label {
+    font-family: var(--serif);
+    font-size: 1.15rem;
+    font-weight: 300;
+    color: var(--white-soft);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .form-section-label em {
+    font-style: italic;
+    color: var(--periwinkle);
+  }
+
+  .submit-wrap {
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .btn-submit {
+    font-family: var(--sans);
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--navy-deep);
+    background: var(--periwinkle);
+    border: none;
+    padding: 0.85rem 2.5rem;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: opacity 0.2s;
+  }
+
+  .btn-submit:hover { opacity: 0.88; }
+
+  .submit-note {
+    font-size: 0.8rem;
+    color: var(--silver);
+    font-style: italic;
+  }
+
+  /* ── SUCCESS STATE ── */
+  .success-message {
+    display: none;
+    text-align: center;
+    padding: 4rem 2rem;
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    background: rgba(125,155,209,0.04);
+  }
+
+  .success-message.visible { display: block; }
+
+  .success-message h3 {
+    font-family: var(--serif);
+    font-size: 1.8rem;
+    font-weight: 300;
+    color: var(--white-soft);
+    margin-bottom: 0.75rem;
+  }
+
+  .success-message h3 em {
+    font-style: italic;
+    color: var(--periwinkle);
+  }
+
+  .success-message p { font-size: 0.95rem; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--navy-deep);
+    border-top: 1px solid var(--border);
+    padding: 3rem 2rem;
+    text-align: center;
+  }
+
+  footer .footer-logo {
+    font-family: var(--serif);
+    font-size: 1rem;
+    color: var(--white-soft);
+    margin-bottom: 0.5rem;
+  }
+
+  footer .footer-logo em { font-style: italic; color: var(--periwinkle); }
+
+  footer p {
+    font-size: 0.8rem;
+    color: var(--silver);
+  }
+
+  footer a { color: var(--periwinkle); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    .nav-links, .nav-cta { display: none; }
+    .hamburger { display: flex; }
+
+    .about {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+      padding: 3.5rem 1.5rem;
+    }
+
+    .eligibility-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .form-row {
+      grid-template-columns: 1fr;
+    }
+
+    .hero { padding: 4rem 1.5rem 3.5rem; }
+
+    .hero-meta {
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .hero-meta-divider { display: none; }
+
+    .form-section { padding: 3.5rem 1.5rem; }
+    .eligibility { padding: 3rem 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">Around&#8209;<em>Birth</em> Collective</a>
+  <ul class="nav-links">
+    <li><a href="/#mission">Mission</a></li>
+    <li><a href="/#impact">Impact</a></li>
+    <li><a href="/#programs">Programs</a></li>
+    <li><a href="/#team">Team</a></li>
+  </ul>
+  <a href="#apply" class="nav-cta">Apply now</a>
+  <button class="hamburger" aria-label="Open menu" onclick="document.querySelector('.mobile-menu').classList.toggle('open')">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu">
+  <a href="/#mission">Mission</a>
+  <a href="/#impact">Impact</a>
+  <a href="/#programs">Programs</a>
+  <a href="/#team">Team</a>
+  <a href="#apply">Apply now</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="eyebrow" style="justify-content:center;">
+    <span>Around-Birth Collective</span>
+  </div>
+  <h1>We want you<br><em>at the table.</em></h1>
+  <p>The Perinatal Community Health Worker Community Advisory Board is assembling. Help California define the PCHW role, defend Medi-Cal benefits for birthing families, and build care models where midwives and PCHWs work as <em>true partners</em>.</p>
+  <div class="hero-meta">
+    <div class="hero-meta-item">
+      <span class="value">5</span>
+      <span class="label">Open seats</span>
+    </div>
+    <div class="hero-meta-divider"></div>
+    <div class="hero-meta-item">
+      <span class="value">$1,500</span>
+      <span class="label">Member stipend</span>
+    </div>
+    <div class="hero-meta-divider"></div>
+    <div class="hero-meta-item">
+      <span class="value">12 mo.</span>
+      <span class="label">Commitment</span>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about">
+  <div>
+    <div class="eyebrow"><span>About the CAB</span></div>
+    <h2>Real decision-making<br><em>authority.</em></h2>
+    <p>The PCHW CAB is a compensated, community-led advisory body. Members don't advise from the margins — they hold genuine authority over the deliverables that go directly to the California Department of Health Care Services (DHCS).</p>
+    <p>CAB members receive a <strong style="color:var(--white-soft)">$1,500 stipend</strong>, along with language access support, childcare assistance, and transportation reimbursement. Your participation costs you nothing.</p>
+    <p>Beyond the stipend, members build <strong style="color:var(--white-soft)">leadership and advocacy skills</strong>, shape maternal health policy in California, and join a network of advocates statewide.</p>
+    <p>We meet regularly over 12 months — primarily virtually, with in-person convenings during the project period.</p>
+  </div>
+  <div>
+    <div class="eyebrow"><span>Three workstreams</span></div>
+    <div class="workstreams">
+      <div class="workstream-card">
+        <span class="num">i.</span>
+        <span class="title">Define the Perinatal CHW</span>
+        <span class="desc">Develop a community-informed definition of "Perinatal Community Health Worker" for adoption by DHCS, managed care plans, and training programs.</span>
+      </div>
+      <div class="workstream-card">
+        <span class="num">ii.</span>
+        <span class="title">Defend the Medi-Cal CHW benefit</span>
+        <span class="desc">Serve as an organized community voice in state policy. Produce briefs, support public testimony, and protect the Medi-Cal CHW benefit for birthing families.</span>
+      </div>
+      <div class="workstream-card">
+        <span class="num">iii.</span>
+        <span class="title">Strengthen integrated care models</span>
+        <span class="desc">Co-develop a replicable framework for licensed midwife–PCHW collaboration: shared care plans, communication protocols, and dyadic family-centered assessment tools.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ELIGIBILITY -->
+<section class="eligibility">
+  <div class="eligibility-inner">
+    <div class="eyebrow"><span>Eligibility</span></div>
+    <div class="eligibility-grid">
+      <div class="eligibility-item">
+        <span class="icon">i.</span>
+        <span class="title">Community Health Worker</span>
+        <span class="sub">Current CHW, certified or working under a CHW title</span>
+      </div>
+      <div class="eligibility-item">
+        <span class="icon">ii.</span>
+        <span class="title">1+ year of experience</span>
+        <span class="sub">At least one year in community health work</span>
+      </div>
+      <div class="eligibility-item">
+        <span class="icon">iii.</span>
+        <span class="title">California resident</span>
+        <span class="sub">Currently living and working in California</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FORM -->
+<section class="form-section" id="apply">
+  <div class="eyebrow"><span>Application</span></div>
+  <h2>Join the <em>table.</em></h2>
+  <p class="form-intro">Applications are due <strong style="color:var(--white-soft)">July 15th</strong>. We will follow up by email within two weeks of the deadline. Questions? Email <a href="mailto:[your email]" style="color:var(--periwinkle);">[your email]</a>.</p>
+
+  <form id="cab-application" action="https://formspree.io/f/xzdlzrqn" method="POST" novalidate>
+
+    <input type="hidden" name="_subject" value="New PCHW CAB Application">
+
+    <p class="form-section-label">Contact information</p>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="first-name">First name</label>
+        <input type="text" id="first-name" name="first_name" required placeholder="First name">
+      </div>
+      <div class="form-group">
+        <label for="last-name">Last name</label>
+        <input type="text" id="last-name" name="last_name" required placeholder="Last name">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required placeholder="you@email.com">
+      </div>
+      <div class="form-group">
+        <label for="phone">Phone <span style="font-weight:300;text-transform:none;letter-spacing:0">(optional)</span></label>
+        <input type="tel" id="phone" name="phone" placeholder="(xxx) xxx-xxxx">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="city">City / region</label>
+      <input type="text" id="city" name="city" required placeholder="e.g. Riverside, San Diego, Inland Empire">
+    </div>
+
+    <hr class="form-divider">
+    <p class="form-section-label"><em>Eligibility</em></p>
+
+    <div class="form-group">
+      <label>Are you a California resident?</label>
+      <div class="radio-group">
+        <label class="radio-item">
+          <input type="radio" name="ca_resident" value="Yes" required>
+          <span class="item-label">Yes</span>
+        </label>
+        <label class="radio-item">
+          <input type="radio" name="ca_resident" value="No">
+          <span class="item-label">No</span>
+        </label>
+        <label class="radio-item">
+          <input type="radio" name="ca_resident" value="In the process of relocating">
+          <span class="item-label">In the process of relocating to California</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Do you currently work as a Community Health Worker?</label>
+      <div class="radio-group">
+        <label class="radio-item">
+          <input type="radio" name="chw_status" value="Yes — currently working as a CHW" required>
+          <span class="item-label">Yes — currently working as a CHW</span>
+        </label>
+        <label class="radio-item">
+          <input type="radio" name="chw_status" value="Certified, not currently in CHW role">
+          <span class="item-label">Certified but not currently in a CHW role</span>
+        </label>
+        <label class="radio-item">
+          <input type="radio" name="chw_status" value="Do this work under different title">
+          <span class="item-label">I do this work under a different title</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Years of community health work experience</label>
+      <div class="radio-group">
+        <label class="radio-item">
+          <input type="radio" name="years_exp" value="Less than 1 year" required>
+          <span class="item-label">Less than 1 year</span>
+        </label>
+        <label class="radio-item">
+          <input type="radio" name="years_exp" value="1–2 years">
+          <span class="item-label">1–2 years</span>
+        </label>
+        <label class="radio-item">
+          <input type="radio" name="years_exp" value="3–5 years">
+          <span class="item-label">3–5 years</span>
+        </label>
+        <label class="radio-item">
+          <input type="radio" name="years_exp" value="6–10 years">
+          <span class="item-label">6–10 years</span>
+        </label>
+        <label class="radio-item">
+          <input type="radio" name="years_exp" value="10+ years">
+          <span class="item-label">10+ years</span>
+        </label>
+      </div>
+    </div>
+
+    <hr class="form-divider">
+    <p class="form-section-label"><em>Experience</em></p>
+
+    <div class="form-group">
+      <label>Areas of perinatal health work <span style="font-weight:300;text-transform:none;letter-spacing:0">(select all that apply)</span></label>
+      <div class="checkbox-group">
+        <label class="checkbox-item">
+          <input type="checkbox" name="perinatal_areas" value="Prenatal support / home visiting">
+          <span class="item-label">Prenatal support / home visiting
+            <span class="item-sub">Case management, prenatal navigation</span>
+          </span>
+        </label>
+        <label class="checkbox-item">
+          <input type="checkbox" name="perinatal_areas" value="Labor and birth support">
+          <span class="item-label">Labor and birth support
+            <span class="item-sub">Doula, birth companion, hospital advocacy</span>
+          </span>
+        </label>
+        <label class="checkbox-item">
+          <input type="checkbox" name="perinatal_areas" value="Postpartum support">
+          <span class="item-label">Postpartum support
+            <span class="item-sub">Recovery, infant feeding, mental health</span>
+          </span>
+        </label>
+        <label class="checkbox-item">
+          <input type="checkbox" name="perinatal_areas" value="Medi-Cal navigation / care coordination">
+          <span class="item-label">Medi-Cal navigation / care coordination
+            <span class="item-sub">Benefits access, referrals, social services</span>
+          </span>
+        </label>
+        <label class="checkbox-item">
+          <input type="checkbox" name="perinatal_areas" value="Community outreach and education">
+          <span class="item-label">Community outreach and education
+            <span class="item-sub">Workshops, programs, health promotion</span>
+          </span>
+        </label>
+        <label class="checkbox-item">
+          <input type="checkbox" name="perinatal_areas" value="Midwife collaboration / clinical support">
+          <span class="item-label">Midwife collaboration / clinical support
+            <span class="item-sub">Working alongside licensed midwives or CNMs</span>
+          </span>
+        </label>
+        <label class="checkbox-item">
+          <input type="checkbox" name="perinatal_areas" value="Other">
+          <span class="item-label">Other</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="experience-desc">Briefly describe your current or most recent CHW role</label>
+      <textarea id="experience-desc" name="experience_desc" placeholder="Where do you work, who do you serve, and what does your day-to-day look like?"></textarea>
+    </div>
+
+    <hr class="form-divider">
+    <p class="form-section-label"><em>Availability</em></p>
+
+    <div class="form-group">
+      <label>How available are you over the next 12 months?</label>
+      <div class="radio-group">
+        <label class="radio-item">
+          <input type="radio" name="availability" value="Fully available — this is a priority" required>
+          <span class="item-label">Fully available — this is a priority for me</span>
+        </label>
+        <label class="radio-item">
+          <input type="radio" name="availability" value="Available with some flexibility needed">
+          <span class="item-label">Available, but I'll need some scheduling flexibility</span>
+        </label>
+        <label class="radio-item">
+          <input type="radio" name="availability" value="Limited — significant other commitments">
+          <span class="item-label">Limited — I have significant other commitments</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Participation supports needed <span style="font-weight:300;text-transform:none;letter-spacing:0">(select all that apply)</span></label>
+      <p class="hint">Around-Birth Collective provides supports to ensure full participation — please let us know what would help.</p>
+      <div class="checkbox-group">
+        <label class="checkbox-item">
+          <input type="checkbox" name="supports" value="Childcare">
+          <span class="item-label">Childcare</span>
+        </label>
+        <label class="checkbox-item">
+          <input type="checkbox" name="supports" value="Transportation">
+          <span class="item-label">Transportation reimbursement</span>
+        </label>
+        <label class="checkbox-item">
+          <input type="checkbox" name="supports" value="Language interpretation">
+          <span class="item-label">Language interpretation</span>
+        </label>
+        <label class="checkbox-item">
+          <input type="checkbox" name="supports" value="Flexible scheduling">
+          <span class="item-label">Flexible meeting scheduling</span>
+        </label>
+        <label class="checkbox-item">
+          <input type="checkbox" name="supports" value="None">
+          <span class="item-label">None — I'm good</span>
+        </label>
+      </div>
+    </div>
+
+    <hr class="form-divider">
+    <p class="form-section-label"><em>Motivation</em></p>
+
+    <div class="form-group">
+      <label>Which CAB workstream matters most to you?</label>
+      <div class="radio-group">
+        <label class="radio-item">
+          <input type="radio" name="priority" value="Defining the PCHW role" required>
+          <span class="item-label">Defining the PCHW role
+            <span class="item-sub">Recognition, standards, workforce visibility</span>
+          </span>
+        </label>
+        <label class="radio-item">
+          <input type="radio" name="priority" value="Defending Medi-Cal CHW benefits">
+          <span class="item-label">Defending the Medi-Cal CHW benefit
+            <span class="item-sub">Access for birthing families, policy protection</span>
+          </span>
+        </label>
+        <label class="radio-item">
+          <input type="radio" name="priority" value="Building midwife–PCHW care models">
+          <span class="item-label">Building midwife–PCHW integrated care models
+            <span class="item-sub">Team-based care, clinical collaboration frameworks</span>
+          </span>
+        </label>
+        <label class="radio-item">
+          <input type="radio" name="priority" value="All three equally">
+          <span class="item-label">All three equally</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="motivation">Why do you want a seat at this table?</label>
+      <textarea id="motivation" name="motivation" placeholder="What draws you to this work, and what do you hope to contribute to the CAB?" style="min-height:140px;"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="additional">Anything else you want us to know? <span style="font-weight:300;text-transform:none;letter-spacing:0">(optional)</span></label>
+      <textarea id="additional" name="additional" placeholder="Languages spoken, communities you serve, lived experience as a birthing person or family member..."></textarea>
+    </div>
+
+    <div class="submit-wrap">
+      <button type="submit" class="btn-submit">Submit application</button>
+      <p class="submit-note">Applications are due July 15th. We'll be in touch within two weeks of the deadline.</p>
+    </div>
+
+  </form>
+
+  <div class="success-message" id="success">
+    <h3>Thank you for <em>applying.</em></h3>
+    <p>We've received your application and will be in touch within two weeks.<br>Questions? Email <a href="mailto:[your email]" style="color:var(--periwinkle)">[your email]</a>.</p>
+  </div>
+
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p class="footer-logo">Around&#8209;<em>Birth</em> Collective</p>
+  <p><a href="https://www.aroundbirthcollective.org">aroundbirthcollective.org</a> &nbsp;·&nbsp; <a href="mailto:[your email]">[your email]</a></p>
+</footer>
+
+<script>
+  const form = document.getElementById('cab-application');
+  const submitBtn = form.querySelector('.btn-submit');
+
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Submitting…';
+
+    try {
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (response.ok) {
+        form.style.display = 'none';
+        document.getElementById('success').classList.add('visible');
+        window.scrollTo({ top: document.getElementById('apply').offsetTop - 80, behavior: 'smooth' });
+      } else {
+        throw new Error('Submission failed');
+      }
+    } catch (err) {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Submit application';
+      const note = form.querySelector('.submit-note');
+      note.textContent = 'Something went wrong. Please try again or email us directly.';
+      note.style.color = '#d98a8a';
+    }
+  });
+</script>
+
+</body>
+</html>
 
